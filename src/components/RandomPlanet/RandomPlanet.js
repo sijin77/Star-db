@@ -24,13 +24,14 @@ export default class RandomPlanet extends Component {
     this.setState({ planet, loading: false, error: false });
   };
 
-  updatePlanet() {
-    const id = 10;
+  updatePlanet = () => {
+    console.log("update");
+    const id = Math.floor(Math.random() * 25) + 3;
     this.swapiService
       .getPlanet(id)
       .then(this.onPlanetLoaded)
       .catch(this.onError);
-  }
+  };
 
   render() {
     const { planet, loading, error } = this.state;
